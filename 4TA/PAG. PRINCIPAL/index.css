@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+/* ========== HEADER STYLES ========== */
+header {
+    background-color: white;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.encabezado h1 {
+    text-align: center;
+    width: 100%;
+}
+
+.titulo-principal {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 6vw, 120px);
+    line-height: 1;
+    white-space: nowrap;
+    color: #333;
+    letter-spacing: 2px;
+    text-shadow: none;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* ========== BODY & CONTENT STYLES ========== */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ccc;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+#PADRES{
+    color:rgba(0, 0, 0, 0.993);
+    text-shadow: red 1px 0 5px;
+}
+
+/* Fondo transparente usando pseudo-elemento */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.login-box {
+    border: none;
+    /* quitar borde negro */
+    border-radius: 16px;
+    /* bordes redondeados */
+    padding: 40px 30px;
+    /* más espaciado interno */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.98) 100%);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 85%;
+    max-width: 380px;
+    /* ancho máximo para no ser demasiado grande */
+    margin: 0 auto;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    /* efecto frosted glass */
+    transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+/* Efecto hover en el cuadro completo */
+.login-box:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.login-box h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 700;
+    /* Usar la misma tipografía y peso que los botones */
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+}
+
+.login-box input {
+    display: block;
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+    background-color: #fafafa;
+}
+
+/* Tipografía específica para el input de correo electrónico */
+#loginUsuario {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+/* Tipografía específica para el input de contraseña */
+#loginContrasena {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #e45757;
+    /* Usando el color de acento */
+    box-shadow: 0 0 0 3px rgba(228, 87, 87, 0.08);
+    background-color: #ffffff;
+}
+
+.login-box input::placeholder {
+    color: #999;
+}
+
+.boton-acceder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    /* forma redondeada (pill) */
+    /* Mantenemos el degradado que usa el color de acento (#e45757) */
+    background: linear-gradient(135deg, #e45757 0%, #9a1717 60%, #661111 100%);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 20px rgba(17, 59, 102, 0.18);
+    transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+/* Hover / foco / activo */
+.boton-acceder:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(235, 61, 61, 0.514);
+    filter: brightness(1.05);
+}
+
+.boton-acceder:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow: 0 6px 12px rgba(17, 59, 102, 0.16);
+}
+
+.boton-acceder:focus {
+    /* Usando un sombreado que incorpore el acento */
+    box-shadow: 0 0 0 4px rgba(228, 87, 87, 0.3), 0 8px 20px rgba(17, 59, 102, 0.16);
+}
+
+/* En pantallas pequeñas que el botón ocupe todo el ancho del login */
+.login-box .boton-acceder {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Si prefieres un botón perfectamente circular con solo un icono, usa esta clase adicional:
+   <button class="boton-acceder boton-acceder--circle">🔒</button> */
+.boton-acceder.boton-acceder--circle {
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.05rem;
+    justify-content: center;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    /* Gris claro */
+    margin: 20px auto;
+}
+
+.parrafo-caja {
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: justify;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    /* fuente específica para el contenedor de párrafo */
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+}
+
+/* Si prefieres aplicarlo solo al <p>, usa esta regla en lugar de la anterior: */
+/*
+.parrafo-caja p {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+}
+*/
+.carrusel_contenedor {
+    width: 100%;
+    max-width: 900px;
+    /* Un borde gris sutil en lugar de negro */
+    border: 1px solid #aaa;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.carrusel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrusel_deslizar {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrusel_deslizar img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+/*-------------------------------*/
+.boton_iz,
+.boton_dc {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Cambiamos el color de los botones del carrusel para que no sean azul */
+    background-color: rgba(51, 51, 51, 0.6);
+    /* Gris oscuro semi-transparente */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.boton_dc {
+    right: 0;
+}
+
+.boton_iz {
+    left: 0;
+}
+
+/* REGLAS PARA EL LAYOUT PRINCIPAL DE DOS COLUMNAS */
+.contenedor-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* ESTILO PARA LA COLUMNA IZQUIERDA (PÁRRAFO Y CARRUSEL) */
+.caja-izquierda {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    gap: 20px;
+}
+
+/* ESTILO PARA LA COLUMNA DERECHA (LOGIN Y REGISTRO) */
+.caja-derecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    gap: 20px;
+}
+
+.login-registro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+}
+
+/* --- Estilos para la funcionalidad de Registro (siempre visible) --- */
+
+/* Estilo para el mensaje: "¿Aún no tienes cuenta?" */
+#mensaje-no-cuenta {
+    cursor: default;
+    /* Ya no es clickeable, quitamos el puntero */
+    color: #0e0101;
+    /* Igual tipografía y peso que los botones */
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 0;
+    margin-bottom: 15px;
+    /* Espacio antes del botón */
+}
+
+/* Estilo para el enlace del botón de registro */
+#enlace-registro {
+    text-decoration: none;
+    display: block;
+}
+
+/* Ajuste al botón que está dentro del enlace */
+#enlace-registro .boton-acceder {
+    width: 100%;
+    /* Para que ocupe todo el ancho del formulario */
+}
+
+/* ========== FOOTER STYLES ========== */
+.footer {
+    /* Color de fondo unificado a gris oscuro/negro para complementar el rojo de acento */
+    background-color: #333333;
+    color: #ecf0f1;
+    /* Texto blanco/gris claro */
+    padding: 30px 0 0;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    /* Asegura que el footer esté debajo de todo el contenido */
+    position: relative;
+    z-index: 1;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    /* Distribuye el espacio entre las secciones */
+    flex-wrap: wrap;
+    /* Permite que las secciones se apilen en pantallas pequeñas */
+    padding: 0 20px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    /* Ocupa el mismo espacio que otras secciones */
+    min-width: 250px;
+    /* Ancho mínimo para evitar que se aplasten */
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    /* Color de acento unificado (rojo de los botones) para los títulos */
+    color: #e45757;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Estilos para los íconos sociales */
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    /* Centrar iconos cuando solo hay uno en pantalla pequeña */
+    justify-content: center;
+}
+
+.social-icon {
+    width: 30px;
+    /* Tamaño pequeño para los logos de redes */
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para enlaces dentro del footer (email, infinova, dirección) */
+.footer-link,
+.footer-bottom a {
+    /* Usamos un color de enlace más cercano al color de acento o un blanco brillante */
+    color: #f1f1f1;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover,
+.footer-bottom a:hover {
+    /* El hover usa el color de acento principal */
+    color: #e45757;
+    text-decoration: underline;
+}
+
+/* Sección inferior (Derechos de autor e Infinova) */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 20px;
+    /* Línea de separación sutil */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Un tono ligeramente más oscuro o igual para la banda inferior */
+    background-color: #2b2b2b;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #bdc3c7;
+}
+
+/* Media Query para móvil: Apilar secciones en una sola columna */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        min-width: 90%;
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    /* Asegurar que el párrafo de la dirección (que ahora contiene un link) se centre correctamente */
+    .footer-contacto p {
+        text-align: center;
+    }
+}
+
+
+/* Estilo específico para el enlace de recuperación */
+.link-recuperar {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif; /* Combina con tus modales */
+    font-weight: 700;                  /* Negrita resaltada */
+    font-size: 0.9rem;
+    color: #4a4a4a;                   /* Un gris oscuro elegante */
+    text-decoration: none;
+    transition: all 0.3s ease;        /* Suaviza el cambio de color */
+    cursor: pointer;
+}
+
+.link-recuperar:hover {
+    color: #850303;                   /* Cambia a azul al pasar el mouse */
+    text-decoration: underline;       /* Se subraya para indicar que es clickeable */
+    transform: scale(1.02);           /* Crece un poquito para llamar la atención */
+}
+
+/* Ocultar el link de recuperación por defecto */
+#linkOlvide {
+    display: none;
+}
+/* Estilos para el Modal de Recuperación */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.btn-primary:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(235, 61, 61, 0.514);
+    filter: brightness(1.05);
+}
+
+.btn-primary {
+    color: rgb(216, 197, 197);
+    background:  rgba(179, 32, 6, 0.952);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.close-modal {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Separar el bloque de registro del botón de padres */
+#enlace-registro {
+    display: block;
+    margin-bottom: 12px; /* Espacio debajo del botón REGÍSTRATE */
+}
+
+/* Opcional: Si quieres que el botón de padres tenga un estilo visualmente distinto 
+   para que no compita tanto con el de ACCEDER, puedes añadirle un margen superior */
+#btnAbrirPadres {
+    margin-top: 5px;
+}

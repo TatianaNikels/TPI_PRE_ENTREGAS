@@ -1,0 +1,318 @@
+/* cargadeNOTAS.css */
+:root {
+    --header-dark: #740000;
+    ;
+    /* Azul oscuro título */
+    --header-light: #a51c1c;
+    /* Azul barra de inputs */
+    --btn-green: #90a590b4;
+    /* Verde botón agregar */
+    --btn-red: #d60000cb;
+    /* Rojo cerrar sesión */
+    --btn-blue: #007bffb2;
+    /* Azul guardar */
+    --bg-gray: #f4f6f9;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-gray);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* Apila main y footer verticalmente */
+    min-height: 100vh;
+}
+
+/* --- Contenedor Principal (Tarjeta) --- */
+.main-card {
+    background-color: white;
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 15px;
+    overflow: hidden;
+    /* Para recortar las esquinas del encabezado */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+    margin: 20px auto;
+
+}
+
+/* 1. Título Superior (Azul Oscuro) */
+.card-header-title {
+    background-color: var(--header-dark);
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.card-header-title h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+/* 2. Barra de Inputs (Azul Medio) */
+.card-filter-bar {
+    background-color: var(--header-light);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: rgb(255, 255, 255);
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 220px;
+}
+
+.input-wrapper label {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-field:focus {
+    border-color: #007bff; /* Cambia el color del borde */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Resaltado similar al botón (azul claro) */
+    outline: none; /* Elimina el foco por defecto del navegador */
+}
+
+/**/
+/* Estilo para el selector de materias dentro de la tabla */
+.subject-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none; /* Quita la flecha por defecto en algunos navegadores */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23740000' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+    padding-right: 30px;
+}
+
+.subject-select:hover {
+    border-color: var(--header-light);
+    background-color: #fff;
+}
+
+.subject-select:focus {
+    outline: none;
+    border-color: var(--header-dark);
+    box-shadow: 0 0 0 3px rgba(116, 0, 0, 0.1);
+}
+
+/* Estilo para las opciones dentro del select */
+.subject-select option {
+    padding: 10px;
+    background-color: white;
+    color: #333;
+}
+/**/
+
+/* 3. Área de la Tabla */
+.table-container {
+    padding: 20px 20px 0 20px;
+    /* Sin padding abajo para pegar el botón verde */
+    overflow-x: auto;
+}
+
+#gradesTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 0;
+}
+
+/* Encabezado de la Tabla (Estilo Imagen 1) */
+#gradesTable thead th {
+    background-color: var(--header-dark);
+    /* Azul oscuro */
+    color: white;
+    padding: 12px 5px;
+    font-size: 13px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    font-weight: bold;
+}
+
+#gradesTable thead th:first-child {
+    border-top-left-radius: 5px;
+}
+
+#gradesTable thead th:last-child {
+    border-top-right-radius: 5px;
+    border-right: none;
+}
+
+/* Celdas del cuerpo */
+#gradesTable tbody td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    height: 45px;
+    background-color: white;
+}
+
+/* Inputs dentro de la tabla */
+.grade-input,
+.subject-name-select,
+.subject-name-input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    text-align: center;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.subject-name-select,
+.subject-name-input {
+    text-align: left;
+}
+
+/* Columnas resaltadas (Cuatrimestres y Final) */
+.highlight-cell {
+    background-color: #eef6ff;
+    /* Azul muy clarito */
+}
+
+/* 4. Botón Agregar Materia (Barra Verde) */
+.btn-add-bar {
+    display: block;
+    width: calc(100% - 40px);
+    /* Restamos el padding del contenedor */
+    margin: 0 auto 20px auto;
+    /* Centrado y con margen abajo */
+    background-color: var(--btn-green);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: background 0.3s;
+}
+
+.btn-add-bar:hover {
+    background-color: #640000;
+}
+
+/* 5. Pie de Página (Botones Grandes) */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px 30px 40px;
+    border-top: 1px solid #eee;
+}
+
+.btn-large {
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s;
+}
+
+.btn-large:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.452), 0 0 0 3px rgba(255, 255, 255, 0.5);
+    /* Borde blanco semi-transparente para el resaltado */
+    transform: translateY(-1px);
+    /* Efecto 3D sutil */
+}
+
+.btn-large:active {
+    transform: scale(0.98);
+}
+
+.btn-save {
+    background-color: var(--btn-blue);
+}
+.btn-save:hover {
+    background-color: #0056b3; /* Azul más oscuro que el original (var(--btn-blue): #007bffb2) */
+}
+
+.btn-logout {
+    background-color: var(--btn-red);
+}
+.btn-logout:hover {
+    background-color: #a50000; /* Rojo más oscuro que el original (var(--btn-red): #d60000cb) */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-filter-bar {
+        flex-direction: column;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-large {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* ========== FOOTER STYLES ========== */
+footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-bottom a:hover {
+    /* El hover usa el color de acento principal */
+    color: #bdbdb2;
+    text-decoration: underline;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #98bfda;
+}
+
+.footer-bottom a {
+    color: #ecf0f1;
+    text-decoration: none;
+}

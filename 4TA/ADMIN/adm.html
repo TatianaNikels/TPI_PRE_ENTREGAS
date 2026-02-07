@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="adm.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="encabezado">
+            <img src="logo.png" class="logo">
+            <h1 class="titulo-principal"> Gestion De Usuarios</h1>
+        </div>
+        <hr>
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nombre y Apellido</th>
+                <th>DNI</th>
+                <th>Correo Electrónico</th>
+                <th>Teléfono</th>
+                <th>Curso</th>
+                <th>Tipo ID</th>
+                <th>Fecha de Registro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpo-tabla-usuarios">
+        </tbody>
+    </table>
+    <div id="modal-edicion">
+        <div class="modal-content">
+            <h2>Editar Usuario</h2>
+            <form id="form-edicion-usuario">
+
+                <input type="hidden" id="edit-dni-oculto" name="dni">
+
+                <label for="edit-nombre">Nombre y Apellido:</label>
+                <input type="text" id="edit-nombre" name="nombre_Apellido" required>
+
+                <label for="edit-correo">Correo Electrónico:</label>
+                <input type="email" id="edit-correo" name="correo_Electronico" required>
+
+                <label for="edit-telefono">Teléfono:</label>
+                <input type="text" id="edit-telefono" name="telefono">
+
+                <label for="edit-curso">Curso:</label>
+                <select id="edit-curso" name="curso">
+                    <option value="" disabled selected>Seleccione Curso</option>
+                    <option value="7°1">7mo 1ra</option>
+                    <option value="7°2">7mo 2da</option>
+                    <option value="7°3">7mo 3ra</option>
+                </select>
+
+                <label for="edit-id-tipo">Tipo ID:</label>
+                <select id="edit-id-tipo" name="id_tipo" required>
+                    <option value="" disabled selected>Seleccione Tipo</option>
+                    <option value="1">1 - Alumno/a</option>
+                    <option value="2">2 - Docente</option>
+                    <option value="3">3 - Dto_Alumnado</option>
+                </select>
+                <button type="submit">Guardar Cambios</button>
+                <button type="button"
+                    onclick="document.getElementById('modal-edicion').style.display='none'">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="deleteConfirmationModal" class="modal-confirmation-backdrop">
+        <div class="modal-confirmation-content">
+            <div class="modal-confirmation-header">
+                <h2 class="modal-confirmation-title">¿Eliminar usuario?</h2>
+                <button class="modal-confirmation-close-btn">&times;</button>
+            </div>
+            <div class="modal-confirmation-footer">
+                <button id="cancelDeleteBtn" class="modal-confirmation-cancel-btn">Cancelar</button>
+                <button id="confirmDeleteBtn" class="modal-confirmation-delete-btn">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="adm.js"> </script>
+
+     <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Boletín Digital | Desarrollado por <a href="infinova.html" title=" INFINOVA S.A.S.">INFINOVA
+                    S.A.S.</a></p>
+        </div>
+    </footer>
+
+</body>
+
+   
+</html>
