@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Carga de Notas</title>
+    <link rel="stylesheet" href="cargadeNOTAS.css">
+</head>
+
+<body>
+
+    <main class="main-card">
+
+        <div class="card-header-title">
+            <h2>Sistema de Carga de Notas </h2>
+
+     <div class="card-filter-bar">
+            <div class="input-wrapper">
+                <label for="grado">Curso:</label>
+                <select id="grado" class="input-field">
+                    <option value="" disabled selected>Seleccione Curso</option>
+                    <option value="7°1">7mo 1ra</option>
+                    <option value="7°2">7mo 2da</option>
+                    <option value="7°3">7mo 3ra</option>
+                </select>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="estudiante">Alumno:</label>
+                <select id="estudiante" class="input-field">
+                    <option value="" disabled selected>Seleccione Alumno</option>
+                </select>
+            </div>
+        </div>
+
+            <div class="table-container">
+                <table id="gradesTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Materia</th>
+                            <th>1ra Nota Parcial</th>
+                            <th>2da Nota Parcial</th>
+                            <th>1er Cuatrimestre</th>
+                            <th>1ra Nota Parcial</th>
+                            <th>2da Nota Parcial</th>
+                            <th>2do Cuatrimestre</th>
+                            <th>Nota Final</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subjectsBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <button id="addSubjectBtn" class="btn-add-bar" type="button">
+                + Agregar Materia
+            </button>
+
+            <div class="card-footer">
+                <button id="saveBtn" class="btn-large btn-save" type="button">
+                    💾 Guardar Informe
+                </button>
+
+                <button id="logoutBtn" class="btn-large btn-logout" type="button">
+                    🚪 Cerrar Sesión
+                </button>
+            </div>
+
+    </main>
+
+    <script src="cargadeNotas.js"></script>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Boletín Digital | Desarrollado por <a href="infinova.html" title=" INFINOVA S.A.S.">INFINOVA
+                    S.A.S.</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
